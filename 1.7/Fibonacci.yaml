@@ -1,0 +1,27 @@
+피보나치 수열:
+- 0,1,1,2,3,5,8,13,21...
+- F_n=F_n-1+F_n-2
+
+void Fibonacci(int n)
+{
+  if(n<=1) cout<<n<<endl;   
+  else{     
+    int fn; int fnm2=0;int fnm1=1;
+    for(int i=2; i<=n; i++)
+    {
+      fn=fnm1+fnm2;
+      fnm2=fnm1;
+      fnm1=fn;
+    }
+    cout<<fn<<endl;
+  }
+}
+
+n=0,1: 총 2steps 
+  line 3에서 if에서 1step, cout에서 1step
+n>1인 경우: 총 4n+1 steps
+  line 3: 1 step*1
+  line 5: 2 steps*1
+  line 6: 1 step*n
+  line 7~11: 3 steps*(n-1)
+  line 12: 1 step*1
