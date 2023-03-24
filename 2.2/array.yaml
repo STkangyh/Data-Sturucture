@@ -1,0 +1,14 @@
+Array:
+- <index, value>의 쌍 집합
+
+cpp 배열:
+- 인덱스 집합이 0부터 시작
+- 배열의 인덱스 범위를 확인하지 않음
+- 예시 
+    float floatArray[n];
+    i번째 원소값 = floatArray[i], *(floatArray+i)
+
+ADT 2.2 Abstract data type 'GeneralArray':
+- GeneralArray(int j, RangeList list, float initValue=defaultValue)
+- member function: Retrieve(index)
+- member function: Store(index, item)

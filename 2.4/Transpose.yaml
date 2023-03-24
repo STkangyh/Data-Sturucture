@@ -1,0 +1,26 @@
+원래의 행렬 각 행 i에 대해 원소를 가져와서 전치행렬의 원소로 저장:
+- (i,j,v)을 (j,i,v)로 저장.
+- 저장 후 정렬
+- 올바른 순서 유지를 위해 기존 원소를 이동시켜야 하는 경우가 발생한다.
+Transpose:
+- 위 상황을 개선하기 위한 알고리즘
+    for(열 j에 있는 모든 원소에 대해)
+      원소(i,j,v)를 원소(j,i,v)로 저장
+- 애초에 j의 값들을 찾아서 저장하는 방식으로 저장과 정렬이 동시에 일어난다.
+- 총 실행시간 O(terms*cols)
+  두 행렬 *this와 b가 필요로 하는 공간 외에 이 함수는 변수 c, i, currentB를 위한
+  고정된 공간만을 추가로 필요로 한다.
+- 단순 알고리즘과 비교
+  O(rows*cols) 시간 내의 rows*cols 크기 행렬의 전치를 얻음
+  sparse matrics 일 때는 이득을 얻는다.
+- 최악의 경우
+  terms=rows*cols로 dense인 경우 시간 복잡도가 O(rows*cols^2)로 손해
+  general matrics 일 때 손해를 보게 된다.
+FastTranspose:
+- col 몇 개 있는지 알고 있고, 시작지점을 알고 있으면 가능하다.
+- 먼저 행렬 *this의 각 column에 대한 원소 수를 구한다 -> O(terms)
+  전치 행렬 b의 각 row의 원소 수를 결정하면 
+  b의 row의 start point를 알 수 있다는 것 -> O(column)
+  원래 행렬 a에 있는 원소를 b의 올바른 위치로 옮김 -> O(terms)
+- 원하는 cols의 위치를 알고 있기 때문에 큰 수가 나오더라도 넘기지 않음
+- 실행시간 O(terms)+O(column)+O(terms)=O(terms+column)

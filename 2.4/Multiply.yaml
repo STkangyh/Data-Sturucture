@@ -1,0 +1,20 @@
+행렬 곱셈:
+
+  - a(m*n)와 b(n*p)의 곱셈
+  - 결과 행렬 d의 차원은 m*p
+
+순서 리스트로 표현:
+  - 결과 행렬의 원소를 행별로 계산
+  - 이전 계산 원소를 이동하지 않고 적절한 위치에 저장
+  - 행렬 a의 한 행을 선택하고 j=0,1...b.cols-1에 대해 b의 j열에 있는 모든 원소 찾음
+  - b를 전치
+  - a의 i행과 b의 j열의 원소들이 정해지면 다항식 덧셈과 유사한 합병연산 수행(2.3)
+
+sparse matrics의 곱셈:
+  - program 2.14
+  - a의 행 r이 곱해지는 동안의 소요시간 = O(b.cols*t_r+b.terms)
+    t=number of terms in row-r of a
+  - 전체 소요 시간=O(sum(b.cols*t_r+b.terms))=O(b.cols*a.terms+a.rows*b.terms)
+  - general multiply=O(a.rows*a.cols*b.cols)
+  - 만약 sparse matrics가 아니라면 a.terms=a.row*a.cols가 되어서
+    general한 연산보다 값이 커질 수 있기 때문에 주의

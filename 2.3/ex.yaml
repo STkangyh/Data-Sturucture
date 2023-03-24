@@ -1,0 +1,6 @@
+다항식 표현:
+- 두 개의 다항식 A(x)=2x^1000+1, B(x)=x^4+10x^3+3x^2+1
+- n개의 0이 아닌 항을 가진 다항식 a는 
+  a.finish = a.start+n-1 의 식을 만족하는 a.start와 a.finish를 갖는다.
+  - A가 0이 아닌 항이 없을 경우
+    a.finish = a.start - 1

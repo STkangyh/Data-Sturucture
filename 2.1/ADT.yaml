@@ -1,0 +1,27 @@
+ADT를 사용하는 이유:
+- specification과 implementation를 구별하기 위함
+
+Cpp class의 구성:
+- 클래스 이름
+- 데이타 멤버
+- 멤버 함수
+- 프로그램 접근 레벨: 멤버 및 멤버 함수
+    public; 어디에서도 접근 가능
+    protected; 같은 클래스 내, friend 선언된 함수나 클래스 접근 가능
+    private; 같은 클래스 내, 서브 클래스, friend 선언만 접근 가능
+
+Cpp 데이터 추상화와 캡슐화:
+- 데이타 멤버
+    모든 데이타 멤버를 private or protected로 선언->데이타 캡슐화
+- 멤버함수
+    외부에서 기동될 것만 public 선언
+    나머지는 private, protected 선언
+- 클래스 연산의 명세와 구현의 분리
+    명세 부분에서 함수 프로토타입(함수 이름, 인자 타입, 결과 타입) 정의-> header file(Rectangle.h)
+    함수의 기능 기술은 주석(comment) 이용
+    함수 구현은 같은 이름의 소스 파일에 저장
+
+ADT와 Cpp class:
+- ADT와의 차이
+    cpp 클래스의 일부 연산자들은 해당 클래스의 멤버함수로 존재하지 않음.
+      보통 cpp 함수로 외부에서 선언

@@ -1,0 +1,14 @@
+다차원 배열 표현:
+  - 다차원 배열이 a[u_1][u_2]...[u_n]
+  - A의 총 원소수 = mutiply(i=1~n,u_i)
+  - 표현 순서 row-major order, column-major order
+    row-major order = 사전순서(lexicographic order)
+
+배열의 표현:
+  - 1차원 배열 a[u_i]
+    임의의 원소 a[i]의 주소 = a[0]의 주소 + i
+  - 2차원 배열 a[u_1][u_2] 
+    임의의 원소 a[i][j]의 주소 = a[o][o]의 주소 + i*u_2 + j
+  - 3차원 배열 a[u_1][u_2][u_3]
+    임의의 원소 a[i][j][k]의 주소 = a[0][0][0]의 주소 + i*u_2*u_3 + j*u_3 + k
+  - 다차원의 배열도 같은 논리로 표현 가능하다.
