@@ -1,0 +1,12 @@
+서브타입과 상속:
+- IS-A 관계
+- 추상 데이터 타입 간의 서브 타입(subtype) 관계를 표현
+- Bag과 Stack 간의 관계
+  - Bag= 단순히 원소들이 삽입과 삭제가 될 수 있는 자료구조
+  - stack은 Bag의 하나(IS-A) 즉, Stack은 Bag의 서브타입
+- 공용 상속(public inheritance)으로 IS-A관계를 표현
+  - 기본클래스 = Bag
+  - 파생클래스 = Stack
+- Bag과 Queue 간의 관계
+  - Queue도 파생클래스로 표현 가능
+    - 더 많은 연산이 재정의 되어야 함
