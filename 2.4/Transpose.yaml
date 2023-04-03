@@ -18,9 +18,8 @@ Transpose:
   general matrics 일 때 손해를 보게 된다.
 FastTranspose:
 - col 몇 개 있는지 알고 있고, 시작지점을 알고 있으면 가능하다.
-- 먼저 행렬 *this의 각 column에 대한 원소 수를 구한다 -> O(terms)
-  전치 행렬 b의 각 row의 원소 수를 결정하면 
-  b의 row의 start point를 알 수 있다는 것 -> O(column)
+- 먼저 행렬 *this의 각 column에 대한 원소 수(col[0], col[1]등 에는 term이 몇 개 있는지)를 구한다 -> O(terms)
+  전치 행렬 b의 각 row의 원소 수를 결정하면 b의 row의 start point(term이 몇 번째 row에 들어가는지)를 알 수 있다는 것 -> O(column)
   원래 행렬 a에 있는 원소를 b의 올바른 위치로 옮김 -> O(terms)
 - 원하는 cols의 위치를 알고 있기 때문에 큰 수가 나오더라도 넘기지 않음
 - 실행시간 O(terms)+O(column)+O(terms)=O(terms+column)

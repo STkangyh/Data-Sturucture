@@ -1,8 +1,9 @@
 다항식:
 - a(x)=3x^2+2x-4, b(x)=x^8-10x^5-3x^3+1
-  - 계수 3,2,-4
-  - 지수 2,1,0
-  - 변수 x
+  - 계수(coefficient) 3,2,-4
+  - 지수(exponent) 2,1,0
+  - 변수 x는 중요하지 않음
+  - 차수(degree) 8
 
 다항식 표현:
 - 첫번째 결정:
@@ -19,16 +20,21 @@
     - degree가 MaxDegree보다 많이 작을 때 메모리 낭비
 - 두번째 결정:
     - Polynomial의 전용 데이타 멤버 선언
+      private:
+        int degree;
+        float *coef;
     - 생성자를 Polynomial에 추가
       Polynomial::Polynomial(int d){
       degree=d;
       coef=new float[degree+1]; }
     - 동적 멤버 함수 사용
   단점: 희소(sparse) 다항식에서 기억 공간 낭비
+    예시) 다항식 x^1000+1
 - 세번째 결정(메모리 차원 권장): 
-  - 모든 다항식은 배열 termArray를 이용해 표현
+  - 모든 다항식은 배열 termArray(항 배열)를 이용해 표현
   - termArray의 각 원소는 term 타입
-  - Polynomial의 정적 클래스 데이터 멤버:
+  - 항을 term으로 정의한다는 것이며, coef, exp를 term에 저장한다
+  - Polynomial의 정적 클래스 데이터 멤버
       class Polynomial; //전방 선언
       class term{
       friend Polynomial;
@@ -48,10 +54,12 @@
   a(x)(*this)와 b(x)를 항별로 더하여 c(x)를 만드는 함수
   - Polynomial의 기정 생성자가 capacity와 terms를 각각 0과 1로 초기화, termArray를 1로 초기화하는 것을 가정
 - 기본 루프는 지수를 비교한 결과에 따라 두 다항식의 항들을 하나로 합하는 과정으로 구성
-- 두 지수가 어떤 관계를 가지는지 검사하여 적당한 동작 수
+- 두 지수가 어떤 관계를 가지는지 검사하여 적당한 동작 수행
 
 Add의 분석:
-- a와 b에서의 0이 아닌 항의 수로 분석
-- 전체 실행 시간 = O(m+n)
+- a와 b에서의 0이 아닌 항의 수로 분석, 각각 m과 n으로 표현
+- line 3,4 O(1), the number of iterations of this loop is bounded by m+n-1 O(m+n-1)
+- for loop O(m+n)
+- 전체 실행 시간 = O(1)+O(m+n-1)+O(m+n) = O(2m+2n)=O(m+n)
 - 배열을 두 배 늘리는 것은 Add의 전체 실행 시간에 대해 기껏해야 상수 승의 영향을 준다.
   즉, 배열 두 배 확장은 Add 전체 실행 시간의 아주 작은 부분이 된다는 것을 보여준다.
