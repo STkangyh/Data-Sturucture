@@ -7,12 +7,13 @@ Function Find:
   - pat이 s에서 탐색할 패턴
   - 호출형식 = s.Find(pat)
   - pat과 i번째 위치에서 시작하는 s의 부분문자열이 일치될 때 인덱스 i을 반환
-  - pat이 공백이거나 s의 부분이 아닐 경우 -1을 반환
+    pat이 공백이거나 s의 부분이 아닐 경우 -1을 반환
   - LengthP=패턴 pat의 길이
   - LengthS=string s의 길이
   - s에서 위치 LengthS-LengthP의 오른쪽은 pat과 매치될 문자가 충분하지 않아 고려하지 않아도 됨
     - 문자열 개수가 패턴 문자열의 개수보다 작아서 매치가 될 수 없음
   - 복잡도=O(LengthP*LengthS)
+    - string s를 훑는 시간에 pat을 대입해보는 시간 복잡도의 곱
 
 스트링 패턴 매치 KMP 알고리즘:
   - 주어진 pat = 'a b c a b c a c a b'
@@ -21,4 +22,12 @@ Function Find:
       s와 pat에서 맞추다 틀린 부분이 생겼을 경우에 어떻게 할 것인가?
   - failure function 정의
     f(j)=제일 큰 k(<j), 여기서 p_0*...*p_k=p_j-k*...*p_j인 k가 존재하는 경우 or -1 그 외의 경우
+  - pat이 'abcabcacab'일 때
+    - j가 3~6까지 겹치는 패턴 발생하여 f(3)~f(6)=0~3
+    - 이를 통해 틀린 부분을 얼마나 뛰어 넘어갈 것인가를 판단한다
   - FastFind의 연산 시간=O(LengthS)
+  - failurefuction 분석
+    - 연산시간 O(LengthP)
+    - 실패 함수를 미리 알 수 없는 경우 failurefuction을 이용하여
+      실패 함수를 먼저 계산한 뒤 FastFind를 이용하여 패턴 매치를
+      수행하는데 걸리는 시간 O(LengthP+LengthS)

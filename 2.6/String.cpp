@@ -45,7 +45,7 @@ int String::FastFind(String pat){
         else{
             if (posP==0)
                 posS++;
-            else posP=pat.f[posP-1]+1;
+            else posP=pat.f[posP-1]+1; //failure function으로 얼마나 건너 뛸 것인지 판단
         }
     }
     if(posP<lengthP) return -1;
