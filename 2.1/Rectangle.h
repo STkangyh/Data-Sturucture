@@ -40,7 +40,7 @@ bool Rectangle::operator == (const Rectangle &s){
 ostream& operator << (ostream& os, Rectangle& r)
 {
     os << "Position is: " << r.xLow << " ";
-    os << r.yLow < endl;
+    os << r.yLow << endl;
     os << "Height is: " << r.height << endl;
     os << "Width is: "<< r.width << endl;
     return os;
