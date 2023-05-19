@@ -52,7 +52,7 @@
 - c=a+b를 구하는 Cpp 함수
 - 함수 Add(Program 2.8)
   a(x)(*this)와 b(x)를 항별로 더하여 c(x)를 만드는 함수
-  - Polynomial의 기정 생성자가 capacity와 terms를 각각 0과 1로 초기화, termArray를 1로 초기화하는 것을 가정
+  - Polynomial의 기정 생성자(기본 생성자)가 capacity와 terms를 각각 0과 1로 초기화, termArray를 1로 초기화하는 것을 가정
 - 기본 루프는 지수를 비교한 결과에 따라 두 다항식의 항들을 하나로 합하는 과정으로 구성
 - 두 지수가 어떤 관계를 가지는지 검사하여 적당한 동작 수행
 
