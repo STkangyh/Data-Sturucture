@@ -1,0 +1,15 @@
+스레드:
+- 0 링크 필드를 다른 노드를 가리키는 포인터로 대치:
+  - if p->rightChild == 0, p->rightChild = p의 중위 후속자에 대한 포인터
+  - if p->leftChild == 0, p->leftChild = p의 중위 선행자에 대한 포인터
+- 노드 구조:
+  - LeftThread, leftChild, data, rightChild, rightThread
+  - leftThread == false, leftChild는 포인터
+    leftThread == true, leftChild는 스레드
+  - 헤더 노드로 연결되지 않은 스레드 처리
+- 중위 순회:
+  - 스택을 이용하지 않고 중위 순회 가능
+  - 중위 순회의 후속자
+    - x->rightThread == true, x->rightChild
+      == false, 오른쪽 자식의 왼쪽 자식 링크를 따라가서 LeftThread==true인 노드
+      - false인 경우, 중위 순회라서 부모 노드로 연결된다.
