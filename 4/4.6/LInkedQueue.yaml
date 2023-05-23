@@ -1,0 +1,7 @@
+Linked Queue:
+- Queue의 각 노드는 data member, link member로 구성
+- front에서는 삽입 삭제 용이하게 이루어짐
+  - front는 Queue의 첫 node를 가리키는 전용 data member
+- rear에서는 노드 삽입 용이하게 이루어짐
+  - rear는 Queue의 마지막 node를 가리키는 전용 data member
+- 초기엔 front와 rear를 0으로 설정

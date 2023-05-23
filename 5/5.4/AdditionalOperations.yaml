@@ -1,0 +1,18 @@
+만족성 문제(Satisfiability Problem):
+- 변수와 연산자로 이루어진 식
+  - 변수는 Boolean
+- 규칙
+  - 변수도 하나의 식
+  - x,y가 식일 때, notx, xoy, xay도 식
+  - 연산 순서는 n,a,o 순서, 괄호 사용하여 순서변경 가능
+- 명제 해석식(formula of propositional calculus)
+  - 위 규칙을 이용해서 구성한 식
+- 명제식의 만족성 문제
+  - 식의 값이 true가 되도록, 변수에 값을 지정할 수 있는 방법이 있는가?
+  (xany)o(nxaz)onz
+  - 가능한 모든 true와 false의 조합을 대입하면 O(g2^n)
+    - g = 식을 계산하는데 필요한 시간
+    - 전체 식이 하나의 값이 될 때까지 서브 트리를 계산하면서 트리를 후위 순회
+  - 후위 순회 계산
+    - Tree 템플릿 클래스를 T = pair<Operator, bool>로 인스턴스화
+    - enum Operator {Not, And, Or, True, False};

@@ -1,0 +1,6 @@
+Linked Stack:
+- Stack이 일반 배열이 아니라 data member, link member로 구성된 노드
+- node의 link는 top에서부터 가장 아래에 있는 node의 link로 이어짐
+- top에서 노드 삽입/삭제 용이함
+- top은 stack의 top node를 가리키는 전용 data member
+- 초기에는 top을 0으로 설정
